@@ -5,7 +5,6 @@ const userSchema = mongoose.Schema(
         name: {
             type: String,
             required: true,
-            unique: true,
         },
         email: {
             type: String,
@@ -22,6 +21,6 @@ const userSchema = mongoose.Schema(
     { timestamps: true }
 );
 
-const userData = mongoose.model("userData", userSchema);
+const User = mongoose.model("User", userSchema);
 
-module.exports = userData;
+module.exports = User;
