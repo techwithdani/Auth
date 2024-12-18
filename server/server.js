@@ -1,6 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const userRoutes = require("./routes/userRoutes");
+const userRoute = require("./routes/userRoute");
 const { notFound, errorHandler } = require("./middlewares/errorHandler");
 const connectDB = require("./configs/db");
 
@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api/users", userRoutes);
+app.use("/api/users", userRoute);
 
 app.use(notFound);
 app.use(errorHandler);

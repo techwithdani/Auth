@@ -6,7 +6,7 @@ const {
     logoutUser,
     authenticateUser,
     signupUser,
-} = require("../controllers/userControllers");
+} = require("../controllers/userController");
 
 router.get("/profile", getUserProfile);
 router.put("/update-profile", updateUserProfile);
