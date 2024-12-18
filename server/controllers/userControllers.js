@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
+const generateToken = require("../utils/generateToken");
 
 const getUserProfile = asyncHandler(async (req, res) => {
     res.json({ message: "User Profile" });
@@ -47,6 +48,8 @@ const signupUser = asyncHandler(async (req, res) => {
     });
 
     if (user) {
+        generateToken(res, user._id);
+
         res.status(201).json({
             _id: user._id,
             name: user.name,
