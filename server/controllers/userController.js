@@ -15,7 +15,24 @@ const logoutUser = asyncHandler(async (req, res) => {
 });
 
 const authenticateUser = asyncHandler(async (req, res) => {
-    res.json({ message: "User Authenticated" });
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email });
+
+    if (user) {
+        if (await user.matchPassword(password)) {
+            generateToken(res, user._id);
+
+            res.json({
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+            });
+        }
+    } else {
+        res.status(401);
+        throw new Error("Invalid Email or Password");
+    }
 });
 
 const signupUser = asyncHandler(async (req, res) => {
