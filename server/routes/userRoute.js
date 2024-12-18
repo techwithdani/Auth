@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const protect = require("../middlewares/authMiddleware");
 const {
     getUserProfile,
     updateUserProfile,
@@ -8,8 +9,8 @@ const {
     signupUser,
 } = require("../controllers/userController");
 
-router.get("/profile", getUserProfile);
-router.put("/update-profile", updateUserProfile);
+router.get("/profile", protect, getUserProfile);
+router.put("/update-profile", protect, updateUserProfile);
 router.post("/authenticate", authenticateUser);
 router.post("/signup", signupUser);
 router.post("/logout", logoutUser);
