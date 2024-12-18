@@ -3,7 +3,16 @@ const User = require("../models/userModel");
 const generateToken = require("../utils/generateToken");
 
 const getUserProfile = asyncHandler(async (req, res) => {
-    res.json({ message: "User Profile" });
+    if (req.user) {
+        res.json({
+            _id: req.user._id,
+            name: req.user.name,
+            email: req.user.email,
+        });
+    } else {
+        res.status(404);
+        throw new Error("User Not Found");
+    }
 });
 
 const updateUserProfile = asyncHandler(async (req, res) => {
