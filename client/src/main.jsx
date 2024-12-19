@@ -8,9 +8,14 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import LandingPage from "./pages/LandingPage.jsx";
 
 const router = createBrowserRouter(
-  createRoutesFromElements(<Route path="/" element={<App />}></Route>)
+  createRoutesFromElements(
+    <Route path="/" element={<App />}>
+      <Route index={true} path="/" element={<LandingPage />} />
+    </Route>
+  )
 );
 
 createRoot(document.getElementById("root")).render(
