@@ -10,12 +10,14 @@ import {
 } from "react-router-dom";
 import LandingPage from "./pages/LandingPage.jsx";
 import SignUpPage from "./pages/SignUpPage.jsx";
+import SignInPage from "./pages/SignInPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} path="/" element={<LandingPage />} />
       <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/signin" element={<SignInPage />} />
     </Route>
   )
 );
