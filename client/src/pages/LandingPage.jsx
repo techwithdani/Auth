@@ -1,13 +1,12 @@
-import Footer from "../components/Footer";
 import Hero from "../components/Hero";
-import NavBar from "../components/NavBar";
+import MainLayout from "../layouts/MainLayout";
 
 const LandingPage = () => {
   return (
     <>
-      <NavBar />
-      <Hero />
-      <Footer />
+      <MainLayout>
+        <Hero />
+      </MainLayout>
     </>
   );
 };
