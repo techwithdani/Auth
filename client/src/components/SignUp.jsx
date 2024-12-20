@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Signup = () => {
   return (
     <>
@@ -74,9 +76,12 @@ const Signup = () => {
                   />
                 </label>
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
+                  <Link
+                    to={"/signin"}
+                    className="label-text-alt link link-hover"
+                  >
                     Already have an account? Sign in
-                  </a>
+                  </Link>
                 </label>
               </div>
               <div className="form-control mt-3">
