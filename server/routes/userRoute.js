@@ -11,7 +11,7 @@ const {
 
 router.get("/profile", protect, getUserProfile);
 router.put("/update-profile", protect, updateUserProfile);
-router.post("/authenticate", authenticateUser);
+router.post("/auth", authenticateUser);
 router.post("/signup", signupUser);
 router.post("/logout", logoutUser);
 
