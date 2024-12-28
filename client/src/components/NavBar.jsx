@@ -1,15 +1,34 @@
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../redux/slices/authSlice";
+import { useLogoutMutation } from "../redux/slices/usersApiSlice";
 
 const NavBar = () => {
   const { userInfo } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [logoutApiCall] = useLogoutMutation();
+
+  const logoutHandler = async () => {
+    try {
+      await logoutApiCall().unwrap();
+      dispatch(logout());
+      navigate("/signin");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <>
       {userInfo ? (
         <div className="navbar bg-base-100">
           <div className="flex-1">
-            <a className="btn btn-ghost text-xl">ByteBridge</a>
+            <Link to={"/home"} className="btn btn-ghost text-xl">
+              ByteBridge
+            </Link>
           </div>
           <div className="flex-none gap-2">
             <div className="dropdown dropdown-end">
@@ -35,7 +54,9 @@ const NavBar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/"}>Logout</Link>
+                  <Link to={"/"} onClick={logoutHandler}>
+                    Logout
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -43,7 +64,7 @@ const NavBar = () => {
         </div>
       ) : (
         <div className="navbar bg-base-300">
-          <Link to={"/home"}>
+          <Link to={"/"}>
             <button className="btn btn-ghost text-xl">ByteBridge</button>
           </Link>
         </div>
