@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useSignupMutation } from "../redux/slices/usersApiSlice";
-import { setCredentials } from "../redux/slices/authSlice";
 import { toast } from "react-toastify";
 import Spinner from "./Spinner";
 
@@ -12,7 +11,6 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [signup, { isLoading }] = useSignupMutation();
@@ -32,8 +30,7 @@ const Signup = () => {
       toast.error("Passwords Do Not Match");
     } else {
       try {
-        const res = await signup({ name, email, password }).unwrap();
-        dispatch(setCredentials({ ...res }));
+        await signup({ name, email, password }).unwrap();
         navigate("/");
       } catch (err) {
         toast.error(err?.data?.message || err.error);
