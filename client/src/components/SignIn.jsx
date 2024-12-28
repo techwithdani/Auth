@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLoginMutation } from "../redux/slices/usersApiSlice";
 import { setCredentials } from "../redux/slices/authSlice";
 import { toast } from "react-toastify";
+import Spinner from "../components/Spinner";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -95,7 +96,7 @@ const SignIn = () => {
                 <button className="btn btn-outline btn-primary">Sign In</button>
               </div>
             </form>
-            {isLoading && <p>Loading....</p>}
+            {isLoading && <Spinner />}
           </div>
         </div>
       </div>
