@@ -16,6 +16,7 @@ import store from "./redux/store.js";
 import HomePage from "./pages/HomePage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import PrivateRoutes from "./components/PrivateRoute.jsx";
+import UpdateProfilePage from "./pages/UpdateProfilePage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path="/home" element={<HomePage />} />
       <Route path="" element={<PrivateRoutes />}>
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/update-profile" element={<UpdateProfilePage />} />
       </Route>
     </Route>
   )
