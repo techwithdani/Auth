@@ -72,24 +72,11 @@ const authenticateUser = asyncHandler(async (req, res) => {
 const signupUser = asyncHandler(async (req, res) => {
     const { name, email, password } = req.body;
 
-    const minLength = 8;
-    const maxLength = 16;
-
     const userExists = await User.findOne({ email });
 
     if (userExists) {
         res.status(400);
         throw new Error("User Already Exists");
-    }
-
-    if (password.length < minLength) {
-        res.status(400);
-        throw new Error(`Password Lenght Less Than ${minLength}`);
-    }
-
-    if (password.length > maxLength) {
-        res.status(400);
-        throw new Error(`Password Length Exceeded ${maxLength}`);
     }
 
     const user = await User.create({
