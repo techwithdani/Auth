@@ -4,11 +4,13 @@ const { notFound, errorHandler } = require("./middlewares/errorHandler");
 const connectDB = require("./configs/db");
 const cookieParser = require("cookie-parser");
 const { express, app, server } = require("./configs/socket");
+const cors = require("cors");
 
 dotenv.config();
 
 const port = process.env.PORT;
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
