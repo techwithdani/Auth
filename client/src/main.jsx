@@ -15,7 +15,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store.js";
 import HomePage from "./pages/HomePage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
-import PrivateRoutes from "./components/PrivateRoute.jsx";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 import UpdateProfilePage from "./pages/UpdateProfilePage.jsx";
 
 const router = createBrowserRouter(
@@ -24,8 +24,8 @@ const router = createBrowserRouter(
       <Route index={true} path="/" element={<LandingPage />} />
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/signin" element={<SignInPage />} />
-      <Route path="/home" element={<HomePage />} />
-      <Route path="" element={<PrivateRoutes />}>
+      <Route path="" element={<PrivateRoute />}>
+        <Route path="/home" element={<HomePage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/update-profile" element={<UpdateProfilePage />} />
       </Route>
