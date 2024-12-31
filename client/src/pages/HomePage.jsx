@@ -1,11 +1,10 @@
-import Drawer from "../components/Drawer";
 import MainLayout from "../layouts/MainLayout";
 
 const HomePage = () => {
   return (
     <>
       <MainLayout>
-        <Drawer />
+        <h1>Home Page</h1>
       </MainLayout>
     </>
   );
