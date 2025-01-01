@@ -7,9 +7,11 @@ const {
     logoutUser,
     authenticateUser,
     signupUser,
+    getAllUsers,
 } = require("../controllers/userController");
 
 router.get("/profile", protect, getUserProfile);
+router.get("/", protect, getAllUsers);
 router.put("/update-profile", protect, updateUserProfile);
 router.post("/auth", authenticateUser);
 router.post("/signup", signupUser);

@@ -15,6 +15,17 @@ const getUserProfile = asyncHandler(async (req, res) => {
     }
 });
 
+const getAllUsers = asyncHandler(async (req, res) => {
+    const users = await User.find();
+
+    if (users) {
+        res.status(200).json(users);
+    } else {
+        res.status(404);
+        throw new Error("No Users Found");
+    }
+})
+
 const updateUserProfile = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user._id);
 
@@ -105,4 +116,5 @@ module.exports = {
     logoutUser,
     authenticateUser,
     signupUser,
+    getAllUsers,
 };
