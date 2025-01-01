@@ -21,6 +21,6 @@ app.use(notFound);
 app.use(errorHandler);
 
 server.listen(port, () => {
-    console.log(`Server started at port: ${port}`);
-    connectDB();
+  console.log(`Server started at port: ${port}`);
+  connectDB();
 });
