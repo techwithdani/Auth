@@ -31,6 +31,12 @@ export const userApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    getAllUsers: builder.mutation({
+      query: () => ({
+        url: `${USERS_URL}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
