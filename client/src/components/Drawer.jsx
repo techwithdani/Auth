@@ -1,4 +1,25 @@
+import { useState } from "react";
+import { useGetAllUsersMutation } from "../redux/slices/usersApiSlice";
+import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
+import Spinner from "./Spinner";
+
 const Drawer = () => {
+  const [users, setUsers] = useState([]);
+
+  const { userInfo } = useSelector((state) => state.auth);
+
+  const [getAllUsers, { isLoading }] = useGetAllUsersMutation();
+
+  const getUsers = async () => {
+    try {
+      const res = await getAllUsers().unwrap();
+      setUsers(res.filter((person) => person.name !== userInfo.name));
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
+  };
+
   return (
     <>
       <div className="hero bg-base-200 min-h-screen">
@@ -12,6 +33,7 @@ const Drawer = () => {
               <label
                 htmlFor="my-drawer"
                 className="btn btn-primary drawer-button"
+                onClick={getUsers}
               >
                 Start Chatting
               </label>
@@ -24,11 +46,11 @@ const Drawer = () => {
               ></label>
               <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
                 <h1>Chats</h1>
+                {isLoading && <Spinner />}
                 <li>
-                  <a>Person 1</a>
-                </li>
-                <li>
-                  <a>Person 2</a>
+                  {users.map((person) => (
+                    <a key={person._id}>{person.name}</a>
+                  ))}
                 </li>
               </ul>
             </div>
