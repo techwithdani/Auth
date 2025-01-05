@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetAllUsersMutation } from "../redux/slices/usersApiSlice";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
@@ -20,6 +20,10 @@ const Drawer = () => {
     }
   };
 
+  useEffect(() => {
+    getUsers();
+  }, []);
+
   return (
     <>
       <div className="hero bg-base-200 min-h-screen">
@@ -33,7 +37,6 @@ const Drawer = () => {
               <label
                 htmlFor="my-drawer"
                 className="btn btn-primary drawer-button"
-                onClick={getUsers}
               >
                 Start Chatting
               </label>
