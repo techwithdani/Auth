@@ -9,12 +9,14 @@ const override = {
 const Spinner = () => {
   return (
     <>
-      <BounceLoader
-        cssOverride={override}
-        size={45}
-        color="#7480ff"
-        aria-label="Loading Spinner"
-      />
+      <div className="mb-5">
+        <BounceLoader
+          cssOverride={override}
+          size={45}
+          color="#7480ff"
+          aria-label="Loading Spinner"
+        />
+      </div>
     </>
   );
 };
