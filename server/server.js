@@ -1,9 +1,10 @@
+const express = require("express");
+const app = express();
 const dotenv = require("dotenv");
 const userRoute = require("./routes/userRoute");
 const { notFound, errorHandler } = require("./middlewares/errorHandler");
 const connectDB = require("./configs/db");
 const cookieParser = require("cookie-parser");
-const { express, app, server } = require("./configs/socket");
 const cors = require("cors");
 
 dotenv.config();
@@ -20,7 +21,7 @@ app.use("/api/users", userRoute);
 app.use(notFound);
 app.use(errorHandler);
 
-server.listen(port, () => {
+app.listen(port, () => {
   console.log(`Server started at port: ${port}`);
   connectDB();
 });
