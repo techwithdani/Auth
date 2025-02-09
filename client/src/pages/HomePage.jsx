@@ -1,4 +1,3 @@
-import Drawer from "../components/Drawer";
 import MainLayout from "../layouts/MainLayout";
 
 const HomePage = () => {

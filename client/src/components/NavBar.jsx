@@ -27,7 +27,7 @@ const NavBar = () => {
         <div className="navbar bg-base-100">
           <div className="flex-1">
             <Link to={"/home"} className="btn btn-ghost text-xl">
-              ByteBridge
+              Auth
             </Link>
           </div>
           <div className="flex-none gap-2">
@@ -65,7 +65,7 @@ const NavBar = () => {
       ) : (
         <div className="navbar bg-base-300">
           <Link to={"/"}>
-            <button className="btn btn-ghost text-xl">ByteBridge</button>
+            <button className="btn btn-ghost text-xl">Auth</button>
           </Link>
         </div>
       )}
