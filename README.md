@@ -2,9 +2,9 @@
 
 Basic Implementation of Authentication and Authorization.
 
-Backend and Server: NodeJS and Express.
-Database: MongoDB.
-Authentication and Authorization: JWT.
-Frontend: React.
-State Management: Redux Toolkit.
-Styling: Tailwind CSS and DaisyUI Responsive Components.
+1. Backend and Server: NodeJS and Express.
+2. Database: MongoDB.
+3. Authentication and Authorization: JWT.
+4. Frontend: React.
+5. State Management: Redux Toolkit.
+6. Styling: Tailwind CSS and DaisyUI Responsive Components.
