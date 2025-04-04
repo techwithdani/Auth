@@ -1,11 +1,10 @@
-import UpdateProfile from "../components/UpdateProfile";
 import MainLayout from "../layouts/MainLayout";
 
 const UpdateProfilePage = () => {
   return (
     <>
       <MainLayout>
-        <UpdateProfile />
+        <h1>Update Profile</h1>
       </MainLayout>
     </>
   );

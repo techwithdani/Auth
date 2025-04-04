@@ -1,11 +1,10 @@
-import Profile from "../components/Profile";
 import MainLayout from "../layouts/MainLayout";
 
 const ProfilePage = () => {
   return (
     <>
       <MainLayout>
-        <Profile />
+        <h1>Profile</h1>
       </MainLayout>
     </>
   );
