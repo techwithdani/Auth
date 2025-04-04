@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useSignupMutation } from "../redux/slices/usersApiSlice";
 import { toast } from "react-toastify";
-import Spinner from "./Spinner";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -141,7 +140,6 @@ const Signup = () => {
                 <button className="btn btn-outline btn-primary">Sign Up</button>
               </div>
             </form>
-            {isLoading && <Spinner />}
           </div>
         </div>
       </div>

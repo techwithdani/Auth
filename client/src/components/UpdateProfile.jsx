@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { useUpdateProfileMutation } from "../redux/slices/usersApiSlice";
 import { setCredentials } from "../redux/slices/authSlice";
-import Spinner from "../components/Spinner";
 import { useNavigate } from "react-router-dom";
 
 const UpdateProfile = () => {
@@ -141,7 +140,6 @@ const UpdateProfile = () => {
                 <button className="btn btn-outline btn-primary">Update</button>
               </div>
             </form>
-            {isLoading && <Spinner />}
           </div>
         </div>
       </div>
