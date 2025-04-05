@@ -59,7 +59,7 @@ const logoutUser = asyncHandler(async (req, res) => {
   res.status(200).json({ message: "Logged Out Successfully" });
 });
 
-const authenticateUser = asyncHandler(async (req, res) => {
+const signinUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
@@ -114,7 +114,7 @@ module.exports = {
   getUserProfile,
   updateUserProfile,
   logoutUser,
-  authenticateUser,
+  signinUser,
   signupUser,
   getAllUsers,
 };

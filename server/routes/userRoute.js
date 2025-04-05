@@ -5,7 +5,7 @@ const {
   getUserProfile,
   updateUserProfile,
   logoutUser,
-  authenticateUser,
+  signinUser,
   signupUser,
   getAllUsers,
 } = require("../controllers/userController");
@@ -13,7 +13,7 @@ const {
 router.get("/profile", protect, getUserProfile);
 router.get("/", protect, getAllUsers);
 router.put("/update-profile", protect, updateUserProfile);
-router.post("/auth", authenticateUser);
+router.post("/signin", signinUser);
 router.post("/signup", signupUser);
 router.post("/logout", logoutUser);
 
